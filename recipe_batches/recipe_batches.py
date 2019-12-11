@@ -3,8 +3,19 @@
 import math
 
 def recipe_batches(recipe, ingredients):
-  pass 
 
+  # TODO possibly get each recipe key and divide by ingredients key, choose lowest number out of all possible equations
+  ingredient_amounts = []
+
+  for key in recipe:
+    if ingredients.get(key) == None:
+      ingredient_amounts.append(0)
+    else:
+      recipe_amount = recipe.get(key)
+      ingredient_amount = ingredients.get(key)
+      ingredient_amounts.append(ingredient_amount // recipe_amount)
+
+  return min(ingredient_amounts)
 
 if __name__ == '__main__':
   # Change the entries of these dictionaries to test 
