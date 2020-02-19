@@ -9,12 +9,18 @@ import sys
 
 def eating_cookies(n, cache={}):
 
+  # if n is 0 then we can eat the cookies zero ways 
   if n < 0:
-    return 0
+    # storing in cache in order to avoid future calls
+    cache[n] = 0
 
+  # base case
+  # sets the value of cache[0] = 1 or cache[1] = 1
+  # since there is only one way to eat those
   if n == 0 or n == 1:
     cache[n] = 1
 
+  # storing values in cache to avoid unnecessary recursion
   if n not in cache:
     cache[n] = eating_cookies(n-1) + eating_cookies(n - 2) + eating_cookies(n- 3)
 
